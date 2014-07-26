@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Suvi</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-static-top">
+			<div class = "container">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand">Suvi Music</a>
+					<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class = "collapse navbar-collapse navHeaderCollapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="http://www.suvimusic.com/">Home</a></li>
+						<li><a href="#">News</a></li>
+						<li><a href="http://www.suvimusic.com/#!gallery/c1tek">Gallery</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Social Media <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Facebook</a></li>
+								<li><a href="#">Twitter</a></li>
+								<li><a href="#">Instagram</a></li>
+								<li><a href="#">YouTube</a></li>
+							</ul>
+						</li>
+						<li><a href="http://www.suvimusic.com/">About</a></li>
+						<li><a href="http://www.suvimusic.com/#!contact/c24vq">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--
+		<h1>Welcome to SuviMusic</h1>
+		-->
+		<div class="banner"></div>
+		<div class="container">
+			<div class="jumbotron">
+				<h1>Made of Gold <small>EP</small></h1>
+				<p>Available on iTunes, Google Music, Spotify, etc.</p>
+				<a href="#" class="btn btn-primary">Buy Now</a>
+				<a href="#" class="btn btn-default">Share</a>
+			</div>
+		</div>
+		<br/><br/><br/>
+		<div class="container">
+			<div class="jumbotron">
+				<h2 style="text-align:center; color:black; text-shadow:none">"The best RnB talent of recent times. Amazing!"</h2>
+				<h4 style="text-align:right; color:grey; text-shadow:none">- Rolling Stones, July 2014</h4>
+			</div>
+		</div>
+		<div class="container">
+			<div class = "row">
+				<div class = "col-md-6">
+					<h3><a href="#">Suvi confirms working on the new album</a></h3>
+					<p>Suvi has confirmed what we all suspected. Earlier today she tweeted a picture from a studio describing it #SV. This is the hashtag fans use to describe Suvi's yet untitled 8th studio album. We've already seen images of Suvi outside recording studios, joined by other musicians (including by Kanye West and Coldplay's Chris Martin). So far we've only heard a confirmation from DreamWorks Animation that she is working on a concept album for their animated movie "Home", which will be out early next year! Can't wait!</p>
+					<a href="#" class="btn btn-default">Read More</a>
+				</div>
+				<div class = "col-md-6">
+					<h3><a href="#">Made of Gold Music Video</a></h3>
+					<iframe width="560" height="315" src="http://www.youtube.com/embed/T0tRZzd-_Ok" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+		<!--<img src="jumbotron.jpg" />
+		<div id="jumbo" class="jumbotron-image"> TESTING</div> -->		
+		<div id="main-carousel" class="carousel slide">
+				<div class="carousel-inner">
+					<div class="item active"><div class="carousel caption">Slide 1</div></div>
+					<div class="item"><div class="carousel caption">Slide 2</div></div>
+					<div class="item"><div class="carousel caption">Slide 3</div></div>
+				</div>
+
+				<a class="carousel-control left" href="#main-carousel" data-slide="prev">&lsaquo;</a>
+				<a class="carousel-control right" href="#main-carousel" data-slide="next">&lsaquo;</a>
+		</div>
+		
+		<div class="navbar navbar-default navbar-fixed-bottom" style="border-top-style:solid; border-color:black;">
+			<div class="container">
+				<p class="navbar-text pull-left" style="padding-top:10px;">Site Design | Aswin Rajkumar</p>
+				<div class="pull-right">
+				<form id="joinForm" class="navbar-form" method="GET" action="http://suvimusic.us7.list-manage.com/subscribe/post-json?u=b74799f3fa922c5ff8f8eb22a&amp;id=5b803f2dff">
+				<input type="text" name="FNAME" id="FNAME" placeholder="First Name"/>
+				<input type="text" name="LNAME" id="LNAME" placeholder ="Last Name" />
+				<input type="text" name="EMAIL" id="EMAIL" placeholder ="Email ID"/>
+				Email Type <select name="EMAILTYPE" id="EMAILTYPE" ><option>html</option><option>text</option></select>
+				<a href="#" id="btnJoin" class = "navbar-btn btn-danger btn ">Join Mailing List</a>
+				</form>
+				</div>
+			</div>
+		</div>
+
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+		<script>
+		  $(document).ready(function(){
+    		$('.carousel').carousel();
+  		});
+		</script>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var $form = $("#joinForm");
+				$("#btnJoin").click(function(event){
+					event.preventDefault();
+					$.ajax({
+						type: $form.attr('method'),
+						url: $form.attr('action').concat('&c=?'),
+						data: $form.serialize(),
+						dataType: 'json',
+						error: function(err){alert("Error in sending.");},
+						success: function(data){
+							console.log(data);
+							if (data.result == "error") {
+									alert(data.msg);
+							} else if (data.result == "success") {
+									alert("Please confirm by clicking the link in the email that we sent you. Thank you for subscribing!");
+							}
+						}
+					});
+				});
+			});
+		</script>
+
+	</body>
+</html>
