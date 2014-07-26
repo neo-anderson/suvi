@@ -22,7 +22,7 @@
 }
 
 .banner {
-    background: url("file:///C:/Users/45W1N/Desktop/OPT Suvi/images/banner_edited.jpg") no-repeat center center;
+    background: url(../images/banner_edited.jpg) no-repeat center center;
     width:100%;
     height:450px;
     position:absolute;
